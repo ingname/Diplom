@@ -1,0 +1,19 @@
+    # log = list(filter(lambda t: t['login'] == login_name, users))
+    # passw = list(filter(lambda t: t['password'] == password, users))
+
+    # with open("hui.json", "r") as fx:
+    #     users = json.load(fx)
+    # content = request.json
+    # user = {
+    #     'id': users[-1]['id'] + 1,
+    #     'login': content['login'],
+    #     'password': content['password']
+    # }
+    #
+    # def write_json(new_data, filename='hui.json'):
+    #     with open(filename, 'r+') as file:
+    #         file_data = json.load(file)
+    #         file_data.append(new_data)
+    #         file.seek(0)
+    #         json.dump(file_data, file, indent=4)
+    # write_json(user)

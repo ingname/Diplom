@@ -4,7 +4,7 @@ import {LinearGradient} from 'expo-linear-gradient';
 import MaskedView from '@react-native-masked-view/masked-view';
 
 const GradientText = props => {
-  return (
+  return ( 
     <MaskedView maskElement={<Text {...props} />}>
       <LinearGradient
         colors={['rgba(52,180,220,1)', 'rgba(67, 97, 238, 1)']}

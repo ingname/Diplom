@@ -3,7 +3,7 @@ import { StyleSheet, Dimensions } from "react-native";
 
 const stylesheets = StyleSheet.create({
     container: {
-      flex: 1,
+      flex: 1
     },
 
     style_FOCUS: {
@@ -62,7 +62,7 @@ const stylesheets = StyleSheet.create({
       top: '7%',
       width: 200, 
       height: 30, 
-      alignItems: "center"
+      alignItems: "center",
     },
     text_played: {
       fontSize:19, 
@@ -72,7 +72,7 @@ const stylesheets = StyleSheet.create({
       top: '7%',
       left: '5%',
       width: '90%',
-      height: '73%',
+      height: '75%',
       borderRadius: 8,
       backgroundColor: "rgba(248,248,255,1)",
       shadowColor:"black",
@@ -95,7 +95,28 @@ const stylesheets = StyleSheet.create({
       resizeMode: 'contain',
       height: 55,
       width: 55,
-    }
+    },
+    view_container_game: {
+      width: 100,
+      height: 100,
+      borderRadius: 8,
+      backgroundColor: "rgba(248,248,255,1)",
+      shadowColor:"black",
+      elevation: 2,
+      padding: 10,
+      
+    },
+    view_cubic: {
+      top: '7%',
+      left: '5%',
+      width: 60,
+      height: 60,
+      borderColor: "black",
+      borderWidth: 1,
+      padding: 10,
+      justifyContent: 'center',
+      alignItems: "center"
+    },
   });
 
   export default stylesheets;

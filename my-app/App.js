@@ -9,6 +9,7 @@ import ProfileScreen from './src/nav/Autorization/auth';
 import HomeScreen from'./src/nav/hello_window';
 import MainScreen from './src/nav/Main/Main_window'
 import Registration from './src/nav/Autorization/reg';
+import SudokuScreen from './src/nav/Game/Sudoku_window';
 
 
 const Stack = createNativeStackNavigator();
@@ -32,6 +33,12 @@ export default function App () {
           options={{headerShown: false}}
           
         />
+        <Stack.Screen
+          name="MainScreen"
+          component={MainScreen}
+          options={{headerShown: false}}
+          
+        />
         <Stack.Screen 
           name="Profile" 
           component={ProfileScreen} 
@@ -39,15 +46,21 @@ export default function App () {
             }}
           
         />
-        <Stack.Screen 
+        {/* <Stack.Screen 
           name="MainScreen" 
           component={MainScreen} 
           options={{headerShown: false}}
           
-        />
+        /> */}
         <Stack.Screen 
           name="Registration" 
           component={Registration} 
+          options={{headerShown: false}}
+
+        />
+        <Stack.Screen 
+          name="Sudoku" 
+          component={SudokuScreen} 
           options={{headerShown: false}}
 
         />

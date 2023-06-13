@@ -1,0 +1,120 @@
+<mxfile host="app.diagrams.net" modified="2023-06-08T11:21:29.952Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="Iw35n_q1qM2ONFq2hoaj" version="21.3.7" type="device">
+  <diagram name="Страница 1" id="p2GWWQX8J7_hDepprX58">
+    <mxGraphModel dx="230" dy="1173" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-39" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="855" y="760" as="sourcePoint" />
+            <mxPoint x="855" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-40" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1625" y="760" as="sourcePoint" />
+            <mxPoint x="855.0033333333322" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-41" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="855" y="80" as="sourcePoint" />
+            <mxPoint x="1625" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-42" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1625" y="80" as="sourcePoint" />
+            <mxPoint x="1625" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-47" value="&lt;font style=&quot;vertical-align: inherit; font-size: 14px;&quot;&gt;&lt;font style=&quot;vertical-align: inherit; font-size: 14px;&quot;&gt;&lt;font style=&quot;vertical-align: inherit; font-size: 14px;&quot;&gt;&lt;font style=&quot;vertical-align: inherit; font-size: 14px;&quot;&gt;Проверка на идентичные значения в базе данных&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="980" y="260" width="225" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-48" value="" style="endArrow=classic;html=1;rounded=0;fontSize=14;strokeWidth=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;spacing=2;jumpSize=6;startSize=6;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="860" y="309" as="sourcePoint" />
+            <mxPoint x="980" y="309.47" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-49" value="Данные от клиента" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="860" y="270" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-50" value="" style="endArrow=classic;html=1;rounded=0;fontSize=16;strokeWidth=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1040" y="80" as="sourcePoint" />
+            <mxPoint x="1040" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-53" value="Библиотеки (psycopg2, flask)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1037.5" y="200" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-54" value="" style="endArrow=classic;html=1;rounded=0;fontSize=16;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1040" y="480" as="sourcePoint" />
+            <mxPoint x="1040" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-55" value="SQL Запрос" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="360" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-56" value="" style="endArrow=classic;html=1;rounded=0;fontSize=16;strokeWidth=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="3h7GT9OCwaak8jrUCOK4-47" target="3h7GT9OCwaak8jrUCOK4-57">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1050" y="490" as="sourcePoint" />
+            <mxPoint x="1050" y="370" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1240" y="285" />
+              <mxPoint x="1240" y="425" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-57" value="Добавление пользователя в базу данных" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="400" width="225" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-58" value="Данные от клиента" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1241" y="310" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-60" value="" style="endArrow=classic;html=1;rounded=0;fontSize=16;strokeWidth=1;exitX=1.003;exitY=0.699;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;exitPerimeter=0;" edge="1" parent="1" source="3h7GT9OCwaak8jrUCOK4-47" target="3h7GT9OCwaak8jrUCOK4-57">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1205" y="330" as="sourcePoint" />
+            <mxPoint x="1280" y="500" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1220" y="330" />
+              <mxPoint x="1220" y="475" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-61" value="Ответ от проверки" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="390" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-62" value="" style="endArrow=classic;html=1;rounded=0;fontSize=16;strokeWidth=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1360" y="220" as="sourcePoint" />
+            <mxPoint x="1360" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-63" value="Библиотеки (psycopg2, flask)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1360" y="340" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-64" value="" style="endArrow=classic;html=1;rounded=0;fontSize=16;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1360" y="620" as="sourcePoint" />
+            <mxPoint x="1360" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-65" value="SQL Запрос" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1360" y="500" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-66" value="" style="endArrow=classic;html=1;rounded=0;fontSize=16;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1505" y="450" as="sourcePoint" />
+            <mxPoint x="1620" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3h7GT9OCwaak8jrUCOK4-67" value="Ответ клиенту" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1505" y="400" width="110" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

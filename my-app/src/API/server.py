@@ -59,7 +59,7 @@ def add_new_user():
         return jsonify(False)
 
 
-@app.errorhandler(400)
+@app.errorhandler(404)
 def not_found_error(error):
     return jsonify(error)
 

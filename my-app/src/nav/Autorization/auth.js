@@ -1,23 +1,26 @@
 import {useBackHandler} from '@react-native-community/hooks';
-import {View, Text, Dimensions, Button, TextInput, Pressable} from 'react-native'
+import {View, Text, Button, TextInput} from 'react-native'
 import GradientText from './GradientText';
 import stylesheets from '../../style/style'
 import React from 'react';
 
-
+let login
 
 const ProfileScreen = ({navigation}) => {
-  
     useBackHandler(() => {
       if (true) {
         return true
       }
     })
-    
     const [text, onChangeText] = React.useState('');
     const [text2, onChangeText2] = React.useState('');
     const [myText, setMyText] = React.useState("Введите логин и пароль");
-
+    function a (){
+        login = text
+    }
+    
+   
+    
     const getMoviesFromApi = async () => {
         if (text == ''|| text2 == ''){
             errorTextEdit2()
@@ -25,8 +28,10 @@ const ProfileScreen = ({navigation}) => {
         else{
             const res = await fetch ('http://192.168.31.188:5000/login/'+text+'_'+text2).then(response => response.text()).catch((error) => {
             console.error(error);
+
             });
             if (res.replace("\n", "") == 'true'){
+                a()
                 navigation.navigate('MainScreen')
             }
             else{
@@ -34,7 +39,6 @@ const ProfileScreen = ({navigation}) => {
             }
         }
     };
-
     const getMoviesInReg = async () => {
         navigation.navigate('Registration')
 
@@ -42,11 +46,9 @@ const ProfileScreen = ({navigation}) => {
     const errorTextEdit = async () => {
         setMyText("Вы ввели не правильные даные")
     }
-
     const errorTextEdit2 = async () => {
         setMyText("Вы не ввели данные")
     }
-
     return (
       <View style = {{flex:1}}>
         <View style = {{alignItems: "center", top: 130}}>
@@ -91,7 +93,6 @@ const ProfileScreen = ({navigation}) => {
                 >
                 </Button>
             </View>
-
             <View style = {{width: 315, height: 30, alignItems: "center", top: 120}}>
                 <Text style={{fontSize:16}} >
                     Если у вас нет аккаунта
@@ -106,4 +107,6 @@ const ProfileScreen = ({navigation}) => {
     );
   };
 
-  export default ProfileScreen;
+
+export default ProfileScreen;
+export {login}

@@ -1,4 +1,4 @@
-import {View, Text, Dimensions, Button, TextInput, Pressable, Image, TouchableOpacity} from 'react-native'
+import {View, Text, Image, TouchableOpacity} from 'react-native'
 import stylesheets from '../../style/style'
 import React from 'react';
 
@@ -13,33 +13,36 @@ function shuffle(array) {
   }
   return array;
 }
-
-
 let mas_bum = Array.from({length: 50}, (_, i) => i + 1);
 let numbers = Array.from({length: 50}, (_, i) => i + 1); 
 shuffle(numbers)
-
 const SudokuScreen = ({navigation}) => {
-
-
       const [text_error, setMyText] = React.useState("");
-
       let ing = 0
       function checks(number) {
         let num = number
+        if (mas_bum[ing]==50){
+          setMyText("Вы выйграли")
+          setTimeout(() => {
+            setMyText("");
+            getMoviesback()
+            }, 2000); 
+          }
         if (num == mas_bum[ing]) {
           ing+=1
         }
         else{
+          ing = 0
+          ing = 0
           ing = 0
           shuffle(numbers)
           setMyText("Число не по порядку")
           setTimeout(() => {
             setMyText("");
             }, 2000); 
+          }
         }
-      }
-
+      
       const getMoviesback = async () => {
         navigation.navigate('MainScreen')
         shuffle(numbers)
@@ -48,13 +51,12 @@ const SudokuScreen = ({navigation}) => {
       return (
         <View>
           <View>
-            <TouchableOpacity onPress={()=>
+            <TouchableOpacity style={{height: 70, width: 70}} onPress={()=>
                 getMoviesback()
             }>
               <Image
               source={require('../../../assets/img/ico_back.png')}
-              style={{width: null, resizeMode: 'contain', height: 40, width: 40, top: 40, left: 20}}
-              
+              style={{width: null, resizeMode: 'contain', height: 50, width: 50, top: 40, left: 20}}
               />
             </TouchableOpacity>
           </View>
@@ -319,7 +321,6 @@ const SudokuScreen = ({navigation}) => {
             </Text>
           </TouchableOpacity >
         </View>
-
         </View>
         <View style = {{bottom: -80}}>
           <Text style = {{fontSize: 20, height: '100%', textAlign: 'center'}}

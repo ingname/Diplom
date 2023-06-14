@@ -1,18 +1,13 @@
-import {useBackHandler} from '@react-native-community/hooks';
-import {View, Text, Dimensions, Button, TextInput, Pressable} from 'react-native'
+import {View, Text, Button, TextInput} from 'react-native'
 import GradientText from './GradientText';
 import stylesheets from '../../style/style'
 import React from 'react';
 
 
-
-
 const Registration = ({navigation}) => {
-    
     const [text, onChangeText] = React.useState('');
     const [text2, onChangeText2] = React.useState('');
     const [myText, setMyText] = React.useState("Введите логин и пароль");
-
     const getMoviesFromApi = async () => {
         if (text == ''|| text2 == ''){
             errorTextEdit2()
@@ -35,20 +30,16 @@ const Registration = ({navigation}) => {
             }
         }
     };
-
     const getMoviesInAuth = async () => {
         navigation.navigate('Profile')
 
     };
-
     const errorTextEdit = async () => {
         setMyText("Этот логин уже занят")
     }
-
     const errorTextEdit2 = async () => {
         setMyText("Вы не ввели данные")
     }
-
     return (
       <View style = {{flex:1}}>
         <View style = {{alignItems: "center", top: 130}}>

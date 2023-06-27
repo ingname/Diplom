@@ -109,13 +109,19 @@ const stylesheets = StyleSheet.create({
     view_cubic: {
       top: '7%',
       left: '5%',
-      width: 60,
-      height: 60,
-      borderColor: "black",
-      borderWidth: 1,
+      width: 70,
+      height: 70,
+      borderColor: "rgba(67, 97, 238, 1)",
+      borderWidth: 0.5,
       padding: 10,
       justifyContent: 'center',
       alignItems: "center"
+    },
+    counterText:{
+      top:"80%",
+      left: "40%",
+      fontSize: 25,
+      color: '#000'
     },
   });
 

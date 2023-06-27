@@ -8,6 +8,7 @@ const Registration = ({navigation}) => {
     const [text, onChangeText] = React.useState('');
     const [text2, onChangeText2] = React.useState('');
     const [myText, setMyText] = React.useState("Введите логин и пароль");
+
     const getMoviesFromApi = async () => {
         if (text == ''|| text2 == ''){
             errorTextEdit2()
@@ -23,7 +24,7 @@ const Registration = ({navigation}) => {
             console.error(error);
             });
             if (res.replace("\n", "") == 'true'){
-                navigation.navigate('MainScreen')
+                setMyText("Вы зарегистрированны!")
             }
             else{
                 errorTextEdit()

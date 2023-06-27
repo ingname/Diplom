@@ -1,6 +1,9 @@
 import {View, Text, Image, TouchableOpacity} from 'react-native'
 import stylesheets from '../../style/style'
 import React from 'react';
+import GradientText from '../Autorization/GradientText';
+import { Stopwatch } from 'react-native-stopwatch-timer';
+import { useState } from 'react';
 
 
 function shuffle(array) {
@@ -13,28 +16,38 @@ function shuffle(array) {
   }
   return array;
 }
-let mas_bum = Array.from({length: 50}, (_, i) => i + 1);
-let numbers = Array.from({length: 50}, (_, i) => i + 1); 
+let mas_bum = Array.from({length: 30}, (_, i) => i + 1);
+let numbers = Array.from({length: 30}, (_, i) => i + 1); 
+let ing = 0
+let Times = ''
 shuffle(numbers)
 const SudokuScreen = ({navigation}) => {
       const [text_error, setMyText] = React.useState("");
-      let ing = 0
+      const [text_win, setMyTextWin] = React.useState("");
+      
       function checks(number) {
         let num = number
-        if (mas_bum[ing]==50){
-          setMyText("Вы выйграли")
+        if (mas_bum[ing]==30){
+          setMyTextWin("Вы выйграли!")
+          setIsStopwatchStart(!isStopwatchStart);
+          setResetStopwatch(false);
           setTimeout(() => {
-            setMyText("");
-            getMoviesback()
-            }, 2000); 
+            setMyTextWin("");
+            }, 4000); 
           }
+        
         if (num == mas_bum[ing]) {
+          if (num == 1){
+            startTimer()
+          }
           ing+=1
-        }
+      }
         else{
           ing = 0
           ing = 0
           ing = 0
+          setIsStopwatchStart(!isStopwatchStart);
+          setResetStopwatch(true);
           shuffle(numbers)
           setMyText("Число не по порядку")
           setTimeout(() => {
@@ -48,6 +61,25 @@ const SudokuScreen = ({navigation}) => {
         shuffle(numbers)
       };
 
+      function startTimer() {
+        setIsStopwatchStart(!isStopwatchStart);
+        setResetStopwatch(false);
+      };
+
+      const [isStopwatchStart, setIsStopwatchStart] = useState(false);
+      const [resetStopwatch, setResetStopwatch] = useState(false);    
+
+      function refresh(numbers) {
+        setIsStopwatchStart(false);
+        setResetStopwatch(true);
+        shuffle(numbers)
+        setMyText("Числа заменены")
+          setTimeout(() => {
+            setMyText("");
+            }, 2000); 
+          }
+ 
+
       return (
         <View>
           <View>
@@ -59,10 +91,36 @@ const SudokuScreen = ({navigation}) => {
               style={{width: null, resizeMode: 'contain', height: 50, width: 50, top: 40, left: 20}}
               />
             </TouchableOpacity>
+
+            <Text style={{fontSize:25, top: '40%', left: '30%'}}
+              value={text_win}>
+              {text_win}
+            </Text>
+           
+            <Stopwatch
+              laps
+              msecs
+              start={isStopwatchStart}
+              reset={resetStopwatch}
+              options={options}
+              getTime={(time) => {
+                Times = time;
+            }}
+            />
+ 
+
+            <TouchableOpacity style={{left: '60%', top: '-50%'}} onPress={()=>
+                refresh(numbers)
+            }>
+              <GradientText style={{fontSize:19}}>
+                Начать заново
+              </GradientText>
+            </TouchableOpacity>
+  
           </View>
-          <View style = {{flexDirection: "row", justifyContent: 'center', top:'5%'}}>
-            <View style = {{justifyContent: 'flex-start'}}>
-            <TouchableOpacity style = {stylesheets.view_cubic} onPress={()=> checks(numbers[0])}>
+          <View style = {{flexDirection: "row", justifyContent: 'center', top:'25%'}}>
+          <View style = {{justifyContent: 'flex-start'}}>
+          <TouchableOpacity style = {stylesheets.view_cubic} onPress={()=> checks(numbers[0])}>
             <Text>
               {numbers[0]}
             </Text>
@@ -92,12 +150,14 @@ const SudokuScreen = ({navigation}) => {
               {numbers[5]}
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style= {stylesheets.view_cubic}onPress={()=> checks(numbers[6])}>
+        </View>
+        <View style = {{justifyContent: 'flex-start'}}>
+          <TouchableOpacity style = {stylesheets.view_cubic} onPress={()=> checks(numbers[6])}>
             <Text>
               {numbers[6]}
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style= {stylesheets.view_cubic}onPress={()=> checks(numbers[7])}>
+          <TouchableOpacity style= {stylesheets.view_cubic} onPress={()=> checks(numbers[7])}>
             <Text>
               {numbers[7]}
             </Text>
@@ -112,8 +172,6 @@ const SudokuScreen = ({navigation}) => {
               {numbers[9]}
             </Text>
           </TouchableOpacity>
-        </View>
-        <View style = {{justifyContent: 'flex-start'}}>
           <TouchableOpacity style= {stylesheets.view_cubic}onPress={()=> checks(numbers[10])}>
             <Text>
               {numbers[10]}
@@ -124,205 +182,105 @@ const SudokuScreen = ({navigation}) => {
               {numbers[11]}
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[12])}>
+        </View>
+        <View style = {{justifyContent: 'flex-start'}}>
+          <TouchableOpacity style = {stylesheets.view_cubic} onPress={()=> checks(numbers[12])}>
             <Text>
               {numbers[12]}
             </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic} onPress={()=> checks(numbers[13])}>
+          </TouchableOpacity>
+          <TouchableOpacity style= {stylesheets.view_cubic} onPress={()=> checks(numbers[13])}>
             <Text>
               {numbers[13]}
             </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic} onPress={()=> checks(numbers[14])}>
+          </TouchableOpacity>
+          <TouchableOpacity style= {stylesheets.view_cubic}onPress={()=> checks(numbers[14])}>
             <Text>
               {numbers[14]}
             </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic} onPress={()=> checks(numbers[15])}>
+          </TouchableOpacity>
+          <TouchableOpacity style= {stylesheets.view_cubic}onPress={()=> checks(numbers[15])}>
             <Text>
               {numbers[15]}
             </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic} onPress={()=> checks(numbers[16])}>
+          </TouchableOpacity>
+          <TouchableOpacity style= {stylesheets.view_cubic}onPress={()=> checks(numbers[16])}>
             <Text>
               {numbers[16]}
             </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic} onPress={()=> checks(numbers[17])}>
+          </TouchableOpacity>
+          <TouchableOpacity style= {stylesheets.view_cubic}onPress={()=> checks(numbers[17])}>
             <Text>
               {numbers[17]}
             </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[18])}>
+          </TouchableOpacity>
+        </View>
+        <View style = {{justifyContent: 'flex-start'}}>
+          <TouchableOpacity style = {stylesheets.view_cubic} onPress={()=> checks(numbers[18])}>
             <Text>
               {numbers[18]}
             </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[19])}>
+          </TouchableOpacity>
+          <TouchableOpacity style= {stylesheets.view_cubic} onPress={()=> checks(numbers[19])}>
             <Text>
               {numbers[19]}
             </Text>
-          </TouchableOpacity >
-        </View>
-        <View style = {{justifyContent: 'flex-start'}}>
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[20])}>
+          </TouchableOpacity>
+          <TouchableOpacity style= {stylesheets.view_cubic}onPress={()=> checks(numbers[20])}>
             <Text>
               {numbers[20]}
             </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[21])}>
+          </TouchableOpacity>
+          <TouchableOpacity style= {stylesheets.view_cubic}onPress={()=> checks(numbers[21])}>
             <Text>
               {numbers[21]}
             </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[22])}>
+          </TouchableOpacity>
+          <TouchableOpacity style= {stylesheets.view_cubic}onPress={()=> checks(numbers[22])}>
             <Text>
               {numbers[22]}
             </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[23])}>
+          </TouchableOpacity>
+          <TouchableOpacity style= {stylesheets.view_cubic}onPress={()=> checks(numbers[23])}>
             <Text>
               {numbers[23]}
             </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[24])}>
+          </TouchableOpacity>
+        </View>
+        <View style = {{justifyContent: 'flex-start'}}>
+          <TouchableOpacity style = {stylesheets.view_cubic} onPress={()=> checks(numbers[24])}>
             <Text>
               {numbers[24]}
             </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[25])}>
+          </TouchableOpacity>
+          <TouchableOpacity style= {stylesheets.view_cubic} onPress={()=> checks(numbers[25])}>
             <Text>
               {numbers[25]}
             </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[26])}>
+          </TouchableOpacity>
+          <TouchableOpacity style= {stylesheets.view_cubic}onPress={()=> checks(numbers[26])}>
             <Text>
               {numbers[26]}
             </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[27])}>
+          </TouchableOpacity>
+          <TouchableOpacity style= {stylesheets.view_cubic}onPress={()=> checks(numbers[27])}>
             <Text>
               {numbers[27]}
             </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[28])}>
+          </TouchableOpacity>
+          <TouchableOpacity style= {stylesheets.view_cubic}onPress={()=> checks(numbers[28])}>
             <Text>
               {numbers[28]}
             </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[29])}>
+          </TouchableOpacity>
+          <TouchableOpacity style= {stylesheets.view_cubic}onPress={()=> checks(numbers[29])}>
             <Text>
               {numbers[29]}
             </Text>
-          </TouchableOpacity >
-        </View>
-        <View style = {{justifyContent: 'flex-start'}}>
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[30])}>
-            <Text>
-              {numbers[30]}
-            </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[31])}>
-            <Text>
-              {numbers[31]}
-            </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[32])}>
-            <Text>
-              {numbers[32]}
-            </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[33])}>
-            <Text>
-              {numbers[33]}
-            </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[34])}>
-            <Text>
-              {numbers[34]}
-            </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[35])}>
-            <Text>
-              {numbers[35]}
-            </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[36])}>
-            <Text>
-              {numbers[36]}
-            </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[37])}>
-            <Text>
-              {numbers[37]}
-            </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[38])}>
-            <Text>
-              {numbers[38]}
-            </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[39])}>
-            <Text>
-              {numbers[39]}
-            </Text>
-          </TouchableOpacity >
-        </View>
-        <View style = {{justifyContent: 'flex-start'}}>
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[40])}>
-            <Text>
-              {numbers[40]}
-            </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[41])}>
-            <Text>
-              {numbers[41]}
-            </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[42])}>
-            <Text>
-              {numbers[42]}
-            </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[43])}>
-            <Text>
-              {numbers[43]}
-            </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[44])}>
-            <Text>
-              {numbers[44]}
-            </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[45])}>
-            <Text>
-              {numbers[45]}
-            </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[46])}>
-            <Text>
-              {numbers[46]}
-            </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[47])}>
-            <Text>
-              {numbers[47]}
-            </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[48])}>
-            <Text>
-              {numbers[48]}
-            </Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style= {stylesheets.view_cubic}onPress={()=> checks(numbers[49])}>
-            <Text>
-              {numbers[49]}
-            </Text>
-          </TouchableOpacity >
+          </TouchableOpacity>
         </View>
         </View>
-        <View style = {{bottom: -80}}>
+        <View style = {{bottom: -150}}>
           <Text style = {{fontSize: 20, height: '100%', textAlign: 'center'}}
             onChangeText={setMyText}
             value={text_error}>
@@ -333,5 +291,20 @@ const SudokuScreen = ({navigation}) => {
         
       );
     };
-  
+
+    const options = {
+      container: {
+          padding: 5,
+          borderRadius: 5,
+          width: 200,
+          alignItems: 'center',
+          top:"60%",
+          left: "25%",
+          fontSize: 25,
+      },
+      text: {
+          fontSize: 25,
+          marginLeft: 7,
+      },
+  };
 export default SudokuScreen;

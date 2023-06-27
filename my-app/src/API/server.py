@@ -59,6 +59,19 @@ def add_new_user():
         return jsonify(False)
 
 
+@app.route('/newres', methods=['POST'])
+def add_new_res():
+    content = request.json
+    cur = connection.cursor()
+
+    cur.execute(f'''  ''')
+    
+
+    connection.commit()
+    cur.close()
+    return jsonify(True), 201
+
+
 @app.errorhandler(404)
 def not_found_error(error):
     return jsonify(error)
